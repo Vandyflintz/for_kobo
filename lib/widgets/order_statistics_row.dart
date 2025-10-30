@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:forkobo/models/order_statistics_model.dart';
 
+import '../utils/app_colors.dart';
+
 class OrderStatisticsRow extends StatefulWidget {
   final List<OrderStatisticsModel> orderStatistics;
 
@@ -43,9 +45,10 @@ class _OrderStatisticsRowState extends State<OrderStatisticsRow> {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
+                        fontFamily: 'DMSans'
                       ),
                     ),
-                    Icon( Icons.inbox, size: 16, color: Color(0xFF959595),)
+                    Icon( Icons.inbox, size: 16, color: AppColors.lightGreyBottomNavBarColor,)
                   ],
                 ),
                 const SizedBox(height: 4),
@@ -54,7 +57,8 @@ class _OrderStatisticsRowState extends State<OrderStatisticsRow> {
                   textAlign: TextAlign.start,
                   style: const TextStyle(
                     fontSize: 10,
-                    color: Color(0xFF666666),
+                    color: AppColors.secondaryTextColor,
+                      fontFamily: 'DMSans'
                   ),
                 ),
               ],

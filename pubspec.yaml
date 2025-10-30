@@ -22,6 +22,7 @@ dependencies:
   flutter_native_splash: ^2.4.7
   pull_to_refresh: ^2.0.0
   flutter_spinkit: ^5.2.2
+  device_frame_plus: ^1.5.0
 
 dev_dependencies:
   flutter_test:
@@ -53,10 +54,12 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+     - family: DMSans
+       fonts:
+         - asset: assets/fonts/DMSans-Regular.ttf
+         - asset: assets/fonts/DMSans-Bold.ttf
+         - asset: assets/fonts/DMSans-Medium.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

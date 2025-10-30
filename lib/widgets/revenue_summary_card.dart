@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../models/revenue_summary_model.dart';
 import '../utils/app_colors.dart';
 
@@ -9,9 +10,11 @@ class RevenueSummaryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formattedRevenue = NumberFormat("#,##0.00", "en_US").format(summary.totalRevenue);
+
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 28, horizontal: 24),
+      padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -30,17 +33,19 @@ class RevenueSummaryCard extends StatelessWidget {
             "Total revenue (USD)",
             style: TextStyle(
               fontSize: 12,
-              color: Color(0xFF666666),
+              color: AppColors.secondaryTextColor,
               fontWeight: FontWeight.w500,
+              fontFamily: 'DMSans',
             ),
           ),
           const SizedBox(height: 4),
           Text(
-            "\$${summary.totalRevenue.toStringAsFixed(2)}",
+            "\$$formattedRevenue",
             style: const TextStyle(
               fontSize: 40,
               fontWeight: FontWeight.w700,
-              color: Color(0xFF222222),
+              color: AppColors.mainTextColor,
+              fontFamily: 'DMSans',
             ),
           ),
           const SizedBox(height: 4),
@@ -51,15 +56,17 @@ class RevenueSummaryCard extends StatelessWidget {
                   text: "+\$${summary.revenueChange.toStringAsFixed(1)} ",
                   style: TextStyle(
                     fontSize: 12,
-                    color: Color(0xFFFF2C5E),
+                    color: AppColors.redTextColor,
                     fontWeight: FontWeight.w400,
+                    fontFamily: 'DMSans',
                   ),
                 ),
-                const TextSpan(
+                TextSpan(
                   text: "this week",
                   style: TextStyle(
                     fontSize: 12,
-                    color: Color(0xFF959595),
+                    color: AppColors.disabledTextColor,
+                    fontFamily: 'DMSans',
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -125,7 +132,9 @@ class RevenueSummaryCard extends StatelessWidget {
         color: highlight ? AppColors.cream : Colors.transparent,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: highlight ? AppColors.borderColorLightGreen : Colors.transparent,
+          color: highlight
+              ? AppColors.borderColorLightGreen
+              : Colors.transparent,
           width: highlight ? 1.5 : 0,
         ),
       ),
@@ -136,17 +145,19 @@ class RevenueSummaryCard extends StatelessWidget {
             title,
             style: const TextStyle(
               fontSize: 12,
-              color: Color(0xFF666666),
+              color: AppColors.secondaryTextColor,
               fontWeight: FontWeight.w500,
+              fontFamily: 'DMSans',
             ),
           ),
           const SizedBox(height: 4),
           Text(
             value,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w700,
-              color: Color(0xFF222222),
+              color: AppColors.mainTextColor,
+              fontFamily: 'DMSans',
             ),
           ),
           if (change.isNotEmpty) ...[
@@ -157,18 +168,20 @@ class RevenueSummaryCard extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: change.replaceAll(" this week", ""),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 12,
-                        color: Color(0xFFFF2C5E),
+                        color: AppColors.redTextColor,
                         fontWeight: FontWeight.w400,
+                        fontFamily: 'DMSans',
                       ),
                     ),
-                    const TextSpan(
+                    TextSpan(
                       text: " this week",
                       style: TextStyle(
                         fontSize: 12,
-                        color: Color(0xFF959595),
+                        color: AppColors.disabledTextColor,
                         fontWeight: FontWeight.w400,
+                        fontFamily: 'DMSans',
                       ),
                     ),
                   ],
@@ -177,7 +190,11 @@ class RevenueSummaryCard extends StatelessWidget {
             else
               Text(
                 change,
-                style: const TextStyle(fontSize: 12, color: Colors.redAccent),
+                style: TextStyle(
+                  fontSize: 12,
+                  color: AppColors.redTextColor,
+                  fontFamily: 'DMSans',
+                ),
               ),
           ],
         ],

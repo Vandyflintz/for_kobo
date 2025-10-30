@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
+import '../utils/app_colors.dart';
+
 class PriceLineChart extends StatefulWidget {
   const PriceLineChart({super.key});
 
@@ -224,6 +226,7 @@ class _PriceLineChartState extends State<PriceLineChart>
                                     color: Colors.grey,
                                     fontSize: 12,
                                     fontWeight: FontWeight.w500,
+                                    fontFamily: 'DMSans'
                                   ),
                                 );
                               },
@@ -333,9 +336,10 @@ class _PriceLineChartState extends State<PriceLineChart>
               child: Text(
                 _ranges[i],
                 style: TextStyle(
-                  color: isSel ? Colors.white : Colors.black87,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 13,
+                  color: isSel ? Colors.white : AppColors.secondaryTextColor,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                    fontFamily: 'DMSans'
                 ),
               ),
             ),
@@ -396,6 +400,7 @@ class _TooltipPainter extends CustomPainter {
           color: Colors.white,
           fontWeight: FontWeight.bold,
           fontSize: 13,
+            fontFamily: 'DMSans'
         ),
       ),
       textDirection: TextDirection.ltr,
